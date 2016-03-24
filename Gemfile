@@ -27,3 +27,4 @@ end
  gem 'figaro'
  gem 'pry'
  gem 'devise'
+ gem 'mailcatcher'
