@@ -1,7 +1,7 @@
 require 'faker'
 
 # Create Users
-20.times do
+5.times do
   user = User.new(
     first_name:     Faker::StarWars.character,
     last_name:      Faker::Name.last_name,
