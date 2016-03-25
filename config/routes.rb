@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
-root to: 'welcome#index'
+  root to: 'welcome#index'
 
-get 'about' => 'welcome#about'
+  get 'about' => 'welcome#about'
 
-devise_for :users, :controllers => {registrations: 'registrations'}
+  devise_for :users, :controllers => {registrations: 'registrations'}
+
+  resources :topics do
+    resources :bookmarks, except: [:index]
+  end
+
 
 
 
