@@ -10,7 +10,6 @@ class TopicsController < ApplicationController
 
   def edit
     @topic = Topic.find(params[:id])
-
   end
 
   def new
@@ -50,7 +49,7 @@ class TopicsController < ApplicationController
       redirect_to action: :index
     else
       flash.now[:alert] = "There was an error. Please try again."
-      redirect_to @topics
+      render :show
     end
   end
 

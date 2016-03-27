@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :topic do
     title "MyString"
-    user nil
+    user User.last 
   end
 end
