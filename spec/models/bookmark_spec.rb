@@ -12,4 +12,5 @@ describe Bookmark do
   } {}
 
   ## Active Record Associations
+  it { should belong_to(:topic) }
 end
