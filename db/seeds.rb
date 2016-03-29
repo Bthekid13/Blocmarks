@@ -1,4 +1,32 @@
 require 'faker'
+
+# Create Users
+5.times do
+  user = User.new(
+    first_name:     Faker::StarWars.character,
+    last_name:      Faker::Name.last_name,
+    email:          Faker::Internet.email,
+    password:       Faker::Lorem.characters(10)
+  )
+  user.skip_confirmation!
+  user.save!
+end
+
+# Create an admin user
+unless User.find_by(email: 'admin@example.com')
+  admin = User.new(
+    first_name:     'Donald',
+    last_name:      'Trump',
+    email:          'admin@example.com',
+    password:       'helloworld'
+  )
+  admin.skip_confirmation!
+  admin.save!
+end
+
+users = User.all
+puts "#{users.count} users have been persisted."
+
 #Creates Topics
 20.times do
   t = Topic.new
@@ -7,9 +35,10 @@ require 'faker'
   t.save!
 end
 
-#Creates Bookmarks
 topics = Topic.all
+puts "#{topics.count} Topics Seeded"
 
+#Creates Bookmarks
 50.times do
   b = Bookmark.create!(
   url: Faker::Internet.domain_name,
@@ -18,5 +47,8 @@ topics = Topic.all
   b.save!
 end
 
-puts "#{Topic.count} Topics Seeded"
-puts "#{Bookmark.count} Bookmarks Seeded"
+bookmarks = Bookmark.all
+puts "#{bookmarks.count} Bookmarks Seeded"
+
+puts "Seed Finished"
+
