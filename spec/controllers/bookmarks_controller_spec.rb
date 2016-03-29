@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'support/controller_support'
 
 RSpec.describe BookmarksController, type: :controller do
 

@@ -20,7 +20,7 @@ RSpec.shared_examples_for "a successful GET action" do |action|
     expect(response).to have_http_status(200) 
   end
   it "renders the #{action} template" do
-    expect(response).to render_template(action})
+    expect(response).to render_template(action)
   end
 end
 
