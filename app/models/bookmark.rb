@@ -1,5 +1,4 @@
 class Bookmark < ActiveRecord::Base
-  
-  #------Relationships
+  #Associations
   belongs_to :topic
 end

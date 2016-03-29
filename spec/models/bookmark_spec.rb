@@ -1,5 +1,16 @@
-require 'rails_helper'
+require 'support/model_support'
 
-RSpec.describe Bookmark, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Bookmark do
+  ## Attributes
+  it_behaves_like "it has attributes", Bookmark,
+  {
+    id: :integer,
+    url: :string,
+    topic_id: :integer,
+    created_at: :datetime,
+    updated_at: :datetime
+  } {}
+
+  ## Active Record Associations
+  it { should belong_to(:topic) }
 end
