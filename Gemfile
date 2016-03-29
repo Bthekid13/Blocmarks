@@ -9,7 +9,7 @@ group :production do
   gem 'rails_12factor'
 end
 
-# Use sqlite3 as the database for Active Record
+# Use 
 
 group :development, :test do
   gem 'sqlite3'
