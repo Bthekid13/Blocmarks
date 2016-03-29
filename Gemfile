@@ -10,11 +10,9 @@ group :production do
 end
 
 # Use sqlite3 as the database for Active Record
-group :development do
-  gem 'pg'
-end
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'pry-rails'
   gem 'pry-byebug' #A better bye bug https://github.com/deivid-rodriguez/pry-byebug#execution-commands
   gem 'better_errors' #A Better error console https://github.com/charliesome/better_errors
