@@ -1,5 +1,14 @@
 require 'rails_helper'
 
+RSpec.shared_examples_for "a successful GET action" do |action|
+  it "responds successfully with an HTTP 200 status code" do
+    expect(response).to be_success
+    expect(response).to have_http_status(:ok) 
+  end
+  it "renders the #{action} template" do
+    expect(response).to render_template(action)
+  end
+end
 
 RSpec.shared_examples_for 'an unauthorized action' do
   it "responds redirect with an HTTP 302 status code" do
@@ -11,16 +20,6 @@ RSpec.shared_examples_for 'an unauthorized action' do
   end
   it "redirects to login_path" do 
     expect(response).to redirect_to root_path
-  end
-end
-
-RSpec.shared_examples_for "a successful GET action" do |action|
-  it "responds successfully with an HTTP 200 status code" do
-    expect(response).to be_success
-    expect(response).to have_http_status(200) 
-  end
-  it "renders the #{action} template" do
-    expect(response).to render_template(action)
   end
 end
 
