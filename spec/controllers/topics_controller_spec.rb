@@ -1,9 +1,14 @@
 require 'support/controller_support'
 
-describe TopicsController do
+RSpec.describe TopicsController, type: :controller do
 
   describe "GET #show" do
-
+    before :example do
+      @topic = create(:topic)
+      get :show, id: @topic.id
+    end
+      it_behaves_like "A successful GET action", :show do
+    end
   end
 
   describe "GET #index" do
