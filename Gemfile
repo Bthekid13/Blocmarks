@@ -19,6 +19,8 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'spring'
   gem 'faker'
+  gem 'mailcatcher'
+
 end
 
 group :test do
@@ -38,4 +40,3 @@ gem 'turbolinks'
 #Additions
 gem 'figaro'
 gem 'devise'
-gem 'mailcatcher'
