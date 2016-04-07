@@ -6,7 +6,7 @@
 #
 
 development:
-  adapter: postgreql
+  adapter: sqlite3
   database: blocmarks_development
   pool: 5
   timeout: 5000
