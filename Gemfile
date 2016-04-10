@@ -38,5 +38,5 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 #Additions
-gem 'figaro'
+gem 'figaro', '1.0'
 gem 'devise'

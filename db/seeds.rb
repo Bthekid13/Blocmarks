@@ -15,9 +15,9 @@ end
 # Create an admin user
 unless User.find_by(email: 'admin@example.com')
   admin = User.new(
-    first_name:     'Donald',
-    last_name:      'Trump',
-    email:          'admin@example.com',
+    first_name:     'Wil',
+    last_name:      'Burke',
+    email:          'billyburke13@gmail.com',
     password:       'helloworld'
   )
   admin.skip_confirmation!
@@ -51,4 +51,3 @@ bookmarks = Bookmark.all
 puts "#{bookmarks.count} Bookmarks Seeded"
 
 puts "Seed Finished"
-
