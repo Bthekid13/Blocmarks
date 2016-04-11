@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   #------Relationships
   has_many :topics
+  has_many :bookmarks
 
 
 

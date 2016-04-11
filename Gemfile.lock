@@ -122,6 +122,8 @@ GEM
       pry (~> 0.10)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -235,6 +237,7 @@ DEPENDENCIES
   pg
   pry-byebug
   pry-rails
+  pundit
   rails (= 4.2.5)
   rails_12factor
   rspec-rails
