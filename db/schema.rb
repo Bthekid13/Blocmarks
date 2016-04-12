@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411150546) do
+ActiveRecord::Schema.define(version: 20160411221421) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.string   "url"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20160411150546) do
 
   add_index "bookmarks", ["topic_id"], name: "index_bookmarks_on_topic_id"
   add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id"
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "bookmark_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "likes", ["bookmark_id"], name: "index_likes_on_bookmark_id"
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
   create_table "topics", force: :cascade do |t|
     t.string   "title"
@@ -52,8 +62,10 @@ ActiveRecord::Schema.define(version: 20160411150546) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "bookmark_id"
   end
 
+  add_index "users", ["bookmark_id"], name: "index_users_on_bookmark_id"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 

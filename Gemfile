@@ -20,6 +20,7 @@ group :development, :test do
   gem 'spring'
   gem 'faker'
   gem 'mailcatcher'
+  gem 'annotate'
 
 end
 
