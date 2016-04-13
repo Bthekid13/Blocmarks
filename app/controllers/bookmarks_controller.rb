@@ -1,5 +1,9 @@
 class BookmarksController < ApplicationController
 
+  def index
+    @bookmarks = Bookmark.all
+  end
+
   def show
     @bookmark = Bookmark.find(params[:id])
   end
@@ -31,6 +35,7 @@ class BookmarksController < ApplicationController
     @bookmark.url = params[:bookmark][:url]
     @topic = Topic.find(params[:topic_id])
     @bookmark.topic = @topic
+    @bookmark.user = current_user
 
     if @bookmark.save
       flash[:notice] = "Bookmark Created"
@@ -46,7 +51,7 @@ class BookmarksController < ApplicationController
     authorize @bookmark
     if @bookmark.destroy
       flash[:notice] = "Bookmark Deleted"
-      redirect_to @bookmark.topic
+      redirect_to request.referrer
     else
       flash.now[:alert] = "There was an error. Please try again."
       render :edit

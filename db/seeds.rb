@@ -8,7 +8,6 @@ require 'faker'
     email:          Faker::Internet.email,
     password:       Faker::Lorem.characters(10)
   )
-  user.skip_confirmation!
   user.save!
 end
 
@@ -20,7 +19,6 @@ unless User.find_by(email: 'admin@example.com')
     email:          'billyburke13@gmail.com',
     password:       'helloworld'
   )
-  admin.skip_confirmation!
   admin.save!
 end
 
@@ -42,11 +40,11 @@ puts "#{topics.count} Topics Seeded"
 50.times do
   b = Bookmark.create!(
   url: Faker::Internet.domain_name,
-  topic: topics.sample
+  topic: topics.sample,
+  user: users.sample
   )
   b.save!
 end
-
 bookmarks = Bookmark.all
 puts "#{bookmarks.count} Bookmarks Seeded"
 
