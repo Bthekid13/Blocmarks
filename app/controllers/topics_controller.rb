@@ -18,9 +18,10 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(topic_params)
+    @topic.user = current_user
+
 
     if @topic.save
-      Mailman.welcome_mail(@user).deliver
       flash[:notice] = "Topic updated!"
       redirect_to @topic
     else

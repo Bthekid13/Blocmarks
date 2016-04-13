@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <h2> <%= current_user.first_name + " " + current_user.last_name  %> </h2>
+
+    <h3> Bookmarks </h3>
+    <% @user_bookmarks.each do |bookmark| %>
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading">
+          <%= link_to bookmark.url, topic_bookmark_path(bookmark.topic, bookmark) %> -
+          <small> <%= link_to "Delete", topic_bookmark_path(bookmark.topic, bookmark), method: :delete%></small>
+
+        </h4>
+      </div>
+    </div>
+    <% end %>
+
+  </br>
+
+  <h3> Favorited Bookmarks </h3>
+  <% @likes.each do |like| %>
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= link_to like.bookmark.url, topic_bookmark_path(like.bookmark.topic, like.bookmark) %>
+      <br>
+        <small>  <%= render partial: 'likes/user_like', locals: { bookmark: like.bookmark } %> </small>
+
+      </h4>
+    </div>
+  </div>
+  <% end %>
+</div>

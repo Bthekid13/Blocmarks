@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'user/show'
+
   root to: 'welcome#index'
 
   get 'about' => 'welcome#about'
+
+  get 'show' => 'users#show'
 
   devise_for :users, :controllers => {registrations: 'registrations'}
 

@@ -1,9 +1,5 @@
 class LikesController < ApplicationController
 
-  def index
-    likes = Likes.all
-  end
-
   def create
     @bookmark = Bookmark.find(params[:bookmark_id])
     @like = current_user.likes.build(bookmark: @bookmark)
@@ -23,7 +19,7 @@ class LikesController < ApplicationController
 
     if @like.destroy
       flash[:notice] = "Unliked!"
-      redirect_to [@bookmark.topic]
+      redirect_to request.referrer
     else
       flash.now[:alert] = "Please try again."
       redirect_to [@bookmark.topic]
