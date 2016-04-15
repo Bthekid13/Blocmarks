@@ -8,9 +8,11 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :integer
+#  slug       :string
 #
 # Indexes
 #
+#  index_bookmarks_on_slug      (slug)
 #  index_bookmarks_on_topic_id  (topic_id)
 #  index_bookmarks_on_user_id   (user_id)
 #
@@ -20,7 +22,5 @@ class Bookmark < ActiveRecord::Base
   belongs_to :topic
   belongs_to :user
   has_many :likes, dependent: :destroy
-
-  scope :personal_bookmarks, -> (user) { where(user: user) }
-
+  
 end
