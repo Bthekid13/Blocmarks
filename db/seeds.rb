@@ -14,6 +14,17 @@ end
 # Create an admin user
 unless User.find_by(email: 'admin@example.com')
   admin = User.new(
+    first_name:     'admin',
+    last_name:      'example',
+    email:          'admin@example.com',
+    password:       'helloworld'
+  )
+  admin.save!
+end
+
+# Create an dev user
+unless User.find_by(email: 'billyburke13@example.com')
+  admin = User.new(
     first_name:     'Wil',
     last_name:      'Burke',
     email:          'billyburke13@gmail.com',
