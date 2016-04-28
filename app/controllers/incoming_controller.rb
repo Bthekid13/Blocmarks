@@ -19,7 +19,7 @@ class IncomingController < ApplicationController
        @user.email = params[:sender]
        @user.password = 'helloworld'
        @user.save!
-     end
+    end
 
     if @topic.nil?
       @topic = Topic.new

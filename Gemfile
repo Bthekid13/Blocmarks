@@ -9,7 +9,6 @@ group :production do
   gem 'rails_12factor'
 end
 
-# Use
 
 group :development, :test do
   gem 'sqlite3'
@@ -42,3 +41,4 @@ gem 'turbolinks'
 gem 'figaro', '1.0'
 gem 'devise'
 gem 'pundit'
+gem 'valid_url'
