@@ -1,30 +1,31 @@
-require 'support/controller_support'
+require 'rails_helper'
 
+RSpec.describe TopicsController, :type => :controller do
 
-describe TopicsController do
-
-  describe "GET #show" do
-
+  describe "GET index" do
+    it "returns http success" do
+      get :index
+      expect(response).to have_http_success(:success)
+    end
   end
 
-  describe "GET #index" do
-
+  describe "GET show" do
+    it "returns http success" do
+      get :show
+      expect(response).to have_http_success(:success)
+    end
   end
 
-  describe "GET #edit" do
-
+  describe "GET new" do
+    it "returns http success" do
+      get :new
+      expect(response).to have_http_success(:success)
+    end
   end
 
-  describe "PUT #update" do
-
+  describe "GET edit" do
+    it "returns http success" do
+      expect(response).to have_http_success(:success)
+    end
   end
-
-  describe "POST #create" do
-
-  end
-
-  describe "DELETE #destroy" do
-
-  end
-
 end
