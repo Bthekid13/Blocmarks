@@ -4,7 +4,7 @@
 
 A social bookmarking app that allows users to email, manage and share bookmarked URLs
 
-Demo: [wil-burke-blocmarks.herokuapp.com] (wil-burke-blocmarks.herokuapp.com)
+Demo: [blocmarks.com] (https://wil-burke-blocmarks.herokuapp.com)
 
 #Features
 
