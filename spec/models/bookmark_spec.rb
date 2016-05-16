@@ -26,6 +26,8 @@ describe Bookmark do
     id: :integer,
     url: :string,
     topic_id: :integer,
+    user_id: :integer,
+    slug: :string,
     created_at: :datetime,
     updated_at: :datetime
   } {}

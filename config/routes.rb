@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'user/show'
 
   root to: 'welcome#index'
+  
+  get 'user/show'
 
   get 'about' => 'welcome#about'
 

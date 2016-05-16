@@ -2,6 +2,7 @@ require 'support/controller_support'
 
 describe BookmarksController do
 
+
   describe "GET #show" do
     before :example do
       @topic = create(:topic)
@@ -20,19 +21,6 @@ describe BookmarksController do
     end
     it_behaves_like 'a successful GET action', :edit do
     end
-  end
-
-  describe "PUT #update" do
-
-  end
-
-  describe "POST #create" do
-
-  end
-
-
-  describe "DELETE #destroy" do
-
   end
 
 end

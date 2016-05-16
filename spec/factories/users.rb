@@ -15,6 +15,10 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  bookmark_id            :integer
@@ -28,6 +32,11 @@
 
 FactoryGirl.define do
   factory :user do
-    
+    first_name "joe"
+    last_name "smith"
+    sequence(:email, 100) { |n| "person#{n}@example.com" }
+    password "helloworld"
+    password_confirmation "helloworld"
+    confirmed_at Time.now
   end
 end

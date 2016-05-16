@@ -19,7 +19,7 @@
 
 FactoryGirl.define do
   factory :bookmark do
-    url "MyString"
+    url "google.com"
     topic nil
   end
 end
