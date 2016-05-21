@@ -2,6 +2,10 @@ require 'support/controller_support'
 
 describe BookmarksController do
 
+  before :example do
+    @user = create(:user)
+    sign_in @user
+  end
 
   describe "GET #show" do
     before :example do

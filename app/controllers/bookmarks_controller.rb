@@ -1,4 +1,4 @@
-wclass BookmarksController < ApplicationController
+class BookmarksController < ApplicationController
 
   def index
     @bookmarks = Bookmark.all
@@ -7,7 +7,7 @@ wclass BookmarksController < ApplicationController
   def show
     @bookmark = Bookmark.find(params[:id])
   end
-w
+
   def edit
     @bookmark = Bookmark.find(params[:id])
   end
