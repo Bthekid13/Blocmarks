@@ -4,7 +4,7 @@
       <h1> Edit Topic </h1>
       <p> Topic Suggestions: </p>
       <ul>
-        <li> How you procrastinate at work </li>
+        <li> How do you procrastinate at work </li>
         <li> Songs you sing in the shower </li>
         <li> Things your Dog might be thinking </li>
       </ul>
@@ -14,3 +14,7 @@
     </div>
   </div>
 </div>
+
+<% content_for :analytic do %>
+  <script type="text/javascript"> $(document).ready(function(){ blocmetrics.report("Edit Topic Visit"); }); </script>
+<% end %>

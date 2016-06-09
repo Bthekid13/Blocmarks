@@ -14,3 +14,8 @@
     </div>
   </div>
 </div>
+
+
+<% content_for :analytic do %>
+  <script type="text/javascript"> $(document).ready(function(){ blocmetrics.report("New Topic Visit"); }); </script>
+<% end %>

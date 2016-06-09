@@ -17,6 +17,9 @@
       <%= link_to "New Topic", new_topic_path(@topic), class: "btn btn-success" %>
     </div>
   </div>
-
-
 </div>
+
+
+<% content_for :analytic do %>
+  <script type="text/javascript"> $(document).ready(function(){ blocmetrics.report("Topic Index Visit"); }); </script>
+<% end %>
