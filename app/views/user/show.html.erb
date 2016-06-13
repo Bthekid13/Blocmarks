@@ -31,3 +31,7 @@
   </div>
   <% end %>
 </div>
+
+<% content_for :analytic do %>
+  <script type="text/javascript"> $(document).ready(function() {blocmetrics.report("User Show");});</script>
+<% end %>

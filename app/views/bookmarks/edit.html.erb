@@ -1,2 +1,6 @@
 
 <%= render partial: 'form', locals: {bookmark: @bookmark} %>
+
+<% content_for :analytic do %>
+  <script type="text/javascript"> $(document).ready(function() {blocmetrics.report("Edit Bookmark Visit");});</script>
+<% end %>
