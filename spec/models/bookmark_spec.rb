@@ -17,21 +17,22 @@
 #  index_bookmarks_on_user_id   (user_id)
 #
 
-require 'support/model_support'
+require 'rails_helper'
 
-describe Bookmark do
+RSpec.describe Bookmark, type: :model do
+
+  ## Associations
+
+  describe "associations" do
+    it { should belong_to(:topic) }
+    it { should belong_to(:user) }
+    it { should have_many(:likes).dependent(:destroy) }
+  end
+
   ## Attributes
-  it_behaves_like "it has attributes", Bookmark,
-  {
-    id: :integer,
-    url: :string,
-    topic_id: :integer,
-    user_id: :integer,
-    slug: :string,
-    created_at: :datetime,
-    updated_at: :datetime
-  } {}
 
-  ## Active Record Associations
-  it { should belong_to(:topic) }
+  describe "attributes" do
+    it { should have_db_column(:slug).of_type(:string) }
+    it { should have_db_column(:url).of_type(:string) }
+  end
 end

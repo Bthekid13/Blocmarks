@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe TopicsController, :type => :controller do
 
   before :example do
-      @user = create(:user)
+      @user = create :user
       sign_in @user
-      @my_topic = create(:topic)
+      @my_topic = create :topic
     end
 
   describe "GET index" do

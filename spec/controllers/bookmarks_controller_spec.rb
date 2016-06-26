@@ -1,29 +1,26 @@
-require 'support/controller_support'
+require 'rails_helper'
 
 describe BookmarksController do
 
   before :example do
-    @user = create(:user)
+    @user = create :user
     sign_in @user
   end
 
   describe "GET #show" do
     before :example do
-      @topic = create(:topic)
+      @topic = create :topic
       @bookmark = create(:bookmark, topic_id: @topic.id)
       get :show, topic_id: @topic.id, id: @bookmark.id
     end
-    it_behaves_like 'a successful GET action', :show do
-    end
+
   end
 
   describe "GET #edit" do
     before :example do
-      @topic = create(:topic)
+      @topic = create :topic
       @bookmark = create(:bookmark, topic_id: @topic.id)
       get :edit, topic_id: @topic.id, id: @bookmark.id
-    end
-    it_behaves_like 'a successful GET action', :edit do
     end
   end
 
