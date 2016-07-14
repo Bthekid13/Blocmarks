@@ -18,11 +18,12 @@ class BookmarksController < ApplicationController
   end
 
   def update
+    @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.find(params[:id])
     authorize @bookmark
     if @bookmark.save
       flash[:notice] = "Bookmark updated"
-      redirect_to @bookmark
+      redirect_to @topic
     else
       flash.now[:alert] = "There was an error. Please try again."
       render :edit
@@ -47,11 +48,12 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
+    @topic = Topic.find(params[:id])
     @bookmark = Bookmark.find(params[:id])
     authorize @bookmark
     if @bookmark.destroy
       flash[:notice] = "Bookmark Deleted"
-      redirect_to request.referrer
+      redirect_to @topic
     else
       flash.now[:alert] = "There was an error. Please try again."
       render :edit

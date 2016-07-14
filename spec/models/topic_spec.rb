@@ -30,4 +30,12 @@ RSpec.describe Topic, type: :model do
     it { should have_db_column(:id).of_type(:integer) }
     it { should have_db_column(:title).of_type(:string) }
   end
+
+  #Validations
+
+  describe "validations" do
+    it { should validate_presence_of(:user) }
+    it { should validate_presence_of(:title) }
+    it { is_expected.to validate_length_of(:title).is_at_least(5) }
+  end
 end

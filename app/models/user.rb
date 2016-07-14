@@ -41,13 +41,15 @@ class User < ActiveRecord::Base
   has_many :bookmarks
   has_many :likes, dependent: :destroy
 
+
+  #------Validations
+  validates :first_name, presence: true, length: {minimum: 2}
+  validates :last_name, presence: true, length: {minimum: 3}
+  validates :email, presence: true, length: { minimum: 3}
+
   #------Methods
 
   def liked(bookmark)
     likes.where(bookmark_id: bookmark.id).first
   end
-
-
-
-
 end

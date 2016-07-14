@@ -29,14 +29,15 @@
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
+require 'faker'
 
 FactoryGirl.define do
+  pw = Faker::Internet.password
   factory :user do
-    first_name "joe"
-    last_name "smith"
-    sequence(:email, 100) { |n| "person#{n}@example.com" }
-    password "helloworld"
-    password_confirmation "helloworld"
-    confirmed_at Time.now
+    first_name Faker::Superhero.name
+    last_name Faker::Superhero.name
+    email Faker::Internet.email
+    password pw
+    password_confirmation pw
   end
 end

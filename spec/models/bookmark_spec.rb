@@ -35,4 +35,10 @@ RSpec.describe Bookmark, type: :model do
     it { should have_db_column(:slug).of_type(:string) }
     it { should have_db_column(:url).of_type(:string) }
   end
+
+  describe "validations" do
+    it { should validate_presence_of(:user) }
+    it { should validate_presence_of(:url) }
+    it { is_expected.to validate_presence_of(:topic) }
+  end
 end

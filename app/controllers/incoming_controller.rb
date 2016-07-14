@@ -4,36 +4,43 @@ class IncomingController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def create
-    # Take a look at these in your server logs
-    # to get a sense of what you're dealing with.
-    puts "INCOMING PARAMS HERE: #{params}"
 
-    # You put the message-splitting and business
-    # magic here.
-    @user = User.find_or_create_by(email: params[:sender])
-    @topic = Topic.find_or_create_by(title: params[:subject])
-    @url = params["body-plain"]
-
-    if @user.nil?
-       @user = User.new
-       @user.email = params[:sender]
-       @user.password = 'helloworld'
-       @user.save!
+    mail_user = params[:sender]
+    @user = User.find_by email: mail_user
+    unless @user
+      @user = User.new(
+        first_name: mail_user,
+        last_name: mail_user,
+        email: mail_user,
+        password: 'password'
+      )
+      @user.save!
     end
 
-    if @topic.nil?
-      @topic = Topic.new
-      @topic.user_id = @user.id
-      @topic.title = params[:subject]
+
+    mail_topic = params[:subject]
+    @topic = Topic.find_by title: mail_topic
+
+    unless @topic
+      @topic = Topic.new(
+        title: mail_topic,
+        user: @user
+      )
       @topic.save!
     end
 
-    @bookmark = Bookmark.new
-    @bookmark.topic_id = @topic.id
-    @bookmark.url = @url.strip
-    @bookmark.save!
 
-    # Assuming all went well.
+    mail_url = params["body-plain"]
+
+    @bookmark = Bookmark.new
+    @bookmark.topic = @topic
+    @bookmark.user = @user
+    @bookmark.url = mail_url
+
+    @bookmark.save
+
+
     head 200
   end
+
 end

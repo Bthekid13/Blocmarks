@@ -2,12 +2,10 @@ Rails.application.routes.draw do
 
 
   root to: 'welcome#index'
-  
+
   get 'user/show'
 
   get 'about' => 'welcome#about'
-
-  get 'show' => 'users#show'
 
   devise_for :users, :controllers => {registrations: 'registrations'}
 

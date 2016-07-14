@@ -50,4 +50,16 @@ RSpec.describe User, type: :model do
     it { should have_db_column(:email).of_type(:string) }
     it { should have_db_column(:encrypted_password).of_type(:string) }
   end
+
+  describe "validations" do
+    it { should validate_presence_of(:first_name) }
+    it { is_expected.to validate_length_of(:first_name).is_at_least(2) }
+
+    it { should validate_presence_of(:last_name) }
+    it { is_expected.to validate_length_of(:last_name).is_at_least(3) }
+    
+    it { should validate_presence_of(:email) }
+    it { is_expected.to validate_length_of(:email).is_at_least(3) }
+  end
+
 end

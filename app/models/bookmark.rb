@@ -23,7 +23,8 @@ class Bookmark < ActiveRecord::Base
   belongs_to :user
   has_many :likes, dependent: :destroy
 
-  validates :url, :url => true
+  validates :url, presence: true
   validates :topic, presence: true
+  validates :user, presence: true
 
 end

@@ -40,6 +40,7 @@ puts "#{users.count} users have been persisted."
 20.times do
   t = Topic.new
   t.title = Faker::Beer.name
+  t.user = users.sample
 
   t.save!
 end
