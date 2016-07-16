@@ -1,3 +1,0 @@
-class LikePolicy < ApplicationPolicy
-  
-end

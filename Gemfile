@@ -20,14 +20,13 @@ group :development, :test do
   gem 'faker'
   gem 'mailcatcher'
   gem 'annotate'
-  gem 'shoulda'
   gem "factory_girl_rails", "~> 4.0"
 
 end
 
 group :test do
   gem 'rspec-rails'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 #Core Gems
