@@ -1,6 +1,8 @@
 #BlocMarks
-[![Build Status](https://travis-ci.org/Bthekid13/Blocmarks.svg?branch=master)](https://travis-ci.org/Bthekid13/Blocmarks)
+
 [![Code Climate](https://codeclimate.com/github/Bthekid13/Blocmarks/badges/gpa.svg)](https://codeclimate.com/github/Bthekid13/Blocmarks)
+[![Build Status](https://travis-ci.org/Bthekid13/Blocmarks.svg?branch=master)](https://travis-ci.org/Bthekid13/Blocmarks)
+
 
 A social bookmarking app that allows users to email, manage and share bookmarked URLs
 
