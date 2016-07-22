@@ -21,6 +21,8 @@ group :development, :test do
   gem 'mailcatcher'
   gem 'annotate'
   gem "factory_girl_rails", "~> 4.0"
+  gem "codeclimate-test-reporter", group: :test, require: nil
+
 
 end
 
